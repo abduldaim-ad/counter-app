@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { Button } from 'antd';
+
+import 'antd/dist/antd.css';
 import './App.css';
 
+import ShowCase from './ShowCase';
+
 function App() {
+  const [count, setCount] = useState(0);
+  const [errorMsg, setErrorMsg] = useState("Welcome to Counter App!")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className='app-main-div'>
+      <h1 className='count-h1'>{count}</h1>
+      <Button type="primary" className='inc-Button' 
+      onClick={()=>{
+        setCount(count+1)
+        setErrorMsg("Increment Successful!")
+      }}>Increment</Button>
+      
+      <Button type="primary" className='dec-Button' 
+      onClick={()=>{
+        if(count>0){
+          setCount(count-1)
+          setErrorMsg("Decrement Successful!")
+        }
+        else{
+          setErrorMsg("Cannot decrement when zero!")
+        }
+      }}>Decrement</Button>
+
+      <p className='error-p'>{errorMsg}</p>
     </div>
+    <ShowCase/>
+    </>
   );
 }
 
