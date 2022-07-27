@@ -1,5 +1,6 @@
 body{
   background-color: var(--blue-l);
+  overflow-y: hidden;
 }
 
 .app-main-div{
@@ -28,4 +29,14 @@ body{
   text-align: center;
   font-size: 20px;
   color: var(--blue-d);
+}
+
+@media screen and (max-width: 900px) {
+  .inc-Button{
+    margin-left: 35%;
+  }
+  
+  .dec-Button{
+    margin-left: 35%;
+  } 
 }
